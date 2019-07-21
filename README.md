@@ -1,3 +1,5 @@
-# angular-q6xf3r
+# demo-flickr
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-q6xf3r)
+[Demo url](https://demo-flickr.stackblitz.io)
+
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/demo-flickr)

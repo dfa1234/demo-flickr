@@ -1,4 +1,11 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<header class="search-box">
+    <h1>Demo Flickr</h1>
+    <input type="text" [formControl]="search" id="search"  name="search" >
+</header>
+
+<main class="gallery">
+        <section class="gallery__card" *ngFor="let result of pictures$ | async">
+            <div class="gallery__card__preview" ><img [src]="result.url" [alt]="result.title"/></div>
+            <span  class="gallery__card__title">{{result.title}}</span>
+        </section>
+</main>
