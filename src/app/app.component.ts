@@ -9,23 +9,20 @@ import {concatMap, debounceTime, distinctUntilChanged, tap} from "rxjs/operators
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
     search = new FormControl();
-    pictures$: Observable<any>;
+
+    pictures$: Observable<any> = this.search.valueChanges
+        .pipe(
+            debounceTime(500),
+            distinctUntilChanged(),
+            concatMap(query => this.flick.getPictures$(query)),
+            tap(r => console.warn(r))
+        );
 
     constructor(public flick: FlickrService) {
 
-    }
-
-    ngOnInit() {
-        this.pictures$ = this.search.valueChanges
-            .pipe(
-                debounceTime(400),
-                distinctUntilChanged(),
-                concatMap(query => this.flick.getPictures$(query)),
-                tap(r => console.warn(r))
-            )
     }
 
 

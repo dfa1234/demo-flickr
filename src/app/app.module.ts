@@ -6,7 +6,12 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
 })

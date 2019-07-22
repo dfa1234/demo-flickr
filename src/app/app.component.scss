@@ -27,14 +27,15 @@
 
 
   &__card {
-    width: 250px;
-    height: 250px;
+    width: 190px;
+    height: 190px;
     text-align: center;
-    margin: 15px;
+    margin: 30px 15px;
 
     &__preview {
       overflow: hidden;
-      max-height: 200px;
+      max-height: 160px;
+      min-height: 160px;
 
       & > img {
         max-width: 100%;
@@ -43,6 +44,9 @@
 
     &__title {
       padding: 5px;
+      display: block;
+      max-height: 30px;
+      overflow: hidden;
     }
 
   }

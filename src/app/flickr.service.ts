@@ -2,18 +2,15 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 import {Observable, of} from "rxjs";
-import {FlickrPhoto} from "./flickr.model";
+import {FlickrPhoto, ResultApi} from "./flickr.model";
 
-interface ResultApi {
-    photos: { photo: any[] }
-}
 
 @Injectable({
     providedIn: 'root'
 })
 export class FlickrService {
 
-    API_KEY = `bac9f1ccfd854f27894fd47c4f01b1e8`;
+    private API_KEY = `bac9f1ccfd854f27894fd47c4f01b1e8`;
 
     constructor(private http: HttpClient) {
     }
@@ -24,8 +21,7 @@ export class FlickrService {
             return of([])
         }
 
-        let url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.API_KEY}&safe_search=1&format=json&nojsoncallback=1&content_type=1&is_getty=1&tags=${query}`;
-
+        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.API_KEY}&safe_search=1&format=json&nojsoncallback=1&content_type=1&is_getty=1&tags=${query}`;
 
         return this.http.get<ResultApi>(url).pipe(
             map(results => {
