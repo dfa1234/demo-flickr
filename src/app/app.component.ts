@@ -18,7 +18,6 @@ export class AppComponent {
             debounceTime(500),
             distinctUntilChanged(),
             concatMap(query => this.flick.getPictures$(query)),
-            tap(r => console.warn(r))
         );
 
     constructor(public flick: FlickrService) {
